@@ -1,0 +1,29 @@
+commit bdff5955b0124580e08ee4677d6693969f0cbb72
+Author: Hashiam Kadhim <hashiamkadhim@gmail.com>
+Date:   Wed Mar 23 20:42:16 2016 -0400
+
+    updated report
+
+commit d63eff97eb23ba69469b5933f39f8032d9bd9364
+Author: Hashiam Kadhim <hashiamkadhim@gmail.com>
+Date:   Wed Mar 23 20:37:57 2016 -0400
+
+    wrote report
+
+commit 36db8de424fdf1ec1616eafbf526a012048f0584
+Author: Hashiam Kadhim <hashiamkadhim@gmail.com>
+Date:   Wed Mar 23 17:04:57 2016 -0400
+
+    wrote the report
+
+commit a5a2e9be2c0e9789180329de7af12294e0cce78c
+Author: Hashiam Kadhim <hashiamkadhim@gmail.com>
+Date:   Wed Mar 23 16:40:52 2016 -0400
+
+    added comments
+
+commit c4cf7a384b9f434d5ed8d4bb0fd770899a796323
+Author: Hashiam Kadhim <hashiamkadhim@gmail.com>
+Date:   Wed Mar 23 16:29:36 2016 -0400
+
+    done with code, just have to add comments and make report

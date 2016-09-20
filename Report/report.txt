@@ -1,0 +1,17 @@
+Hashiam Kadhim
+Homework 8 Report
+
+
+The comments in the code describe much of what I did, however, I will reiterate and give more detail in this report. Below I describe what I did in the following codes.
+
+diffring_timestep.cc: First we discuss the "fill_time_step_matrix" function. We begin by defining alpha just as in the lecture 14 notes. We then fill the matrix with all 0s (because when we initially set memory for F, the computer sets the memory by letting the elements of F be some double, not necessarily the same one, and not necessarily equal to 0). 
+ 
+
+We then fill the nonzero parts of F. To do this, we note that F is identical to that of lecture 14 except for the first and last rows (in order to agree with boundary conditions). In order to satisfy boundary conditions, we let F(0,0)= 1.0 - 2.0*alpha, F(0,1)=F(0,N-1)=alpha, where we use indexing starting at 0, and N is the dimension of the square matrix F. Similarly, for the last row we have F(N-1,N-1)=1.0 - 2.0*alpha, F(N-1,0)=F(N-1,N-2)=alpha. If we then do the multiplication of F with the appropriate vector just as in lecture 14, we see that we satisfy boundary conditions (i.e. P_{i+1} = F * P_{i}). 
+
+For the "perform_time_step" function, first we define an array PP that is an exact copy of P. Then we multiply F with PP so that our result is returned in P. The reason we do this is because if we use P for the multiplication and as the variable that returns the value of the multiplication, we get an error. It is probably because cblas_dgemv is writing the output into P as it's doing the multiplication with P therefore causing incorrect answers.
+
+
+walkring_timestep.cc: first we initialize the random number generator so that it uniformly generates a double between 0 and 1. Then for each walker, we generate a random number from this distribution. If the number is less than p, the walker moves left. If the number is between p and 2p then the walker moves right. If the number is equal to p, or bigger than or equal to 2p, then the walker stays still. (I chose to make the walker stay still if the number is identically equal to p so that the walker moves to he left and right for exactly the same number of doubles).Finally if the walker's position is not in [0,N-1], then I readjust the position mod N-1 so that it lies within this range. 
+
+Choosing 99999 walkers seems to give good results, but it is much slower to run than the differential method. The differential method also converges much quicker, and is computationally much quicker. Hence I would choose to use the differential method over the MC method. For comparison, the differential method converged with a wall time of 0.8156 seconds, while the MC method took 41.6714 seconds to get very close to the converging solution. Even after getting the correct solution, the MC method fluctuates between the correct equilibrium position and a slightly perturbed version of the equilibrium position, while the differential method stops evolving after reaching the equilibrium position. 
