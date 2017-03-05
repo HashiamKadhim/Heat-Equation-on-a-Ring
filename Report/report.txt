@@ -3,7 +3,7 @@ Hashiam Kadhim
 
 The comments in the code describe much of what I did, however, I will reiterate and give more detail in this report. Below I describe what I did in the following codes.
 
-diffring_timestep.cc: First we discuss the "fill_time_step_matrix" function. We begin by defining alpha just as in the lecture 14 notes. We then fill the matrix with all 0s (because when we initially set memory for F, the computer sets the memory by letting the elements of F be some double, not necessarily the same one, and not necessarily equal to 0). 
+diffring_timestep.cc: First we discuss the "fill_time_step_matrix" function. We fill the matrix with all 0s (because when we initially set memory for F, the computer sets the memory by letting the elements of F be some double, not necessarily the same one, and not necessarily equal to 0). 
  
 
 We then fill the nonzero parts of F. To do this, we note that F is identical to that of lecture 14 except for the first and last rows (in order to agree with boundary conditions). In order to satisfy boundary conditions, we let F(0,0)= 1.0 - 2.0*alpha, F(0,1)=F(0,N-1)=alpha, where we use indexing starting at 0, and N is the dimension of the square matrix F. Similarly, for the last row we have F(N-1,N-1)=1.0 - 2.0*alpha, F(N-1,0)=F(N-1,N-2)=alpha. If we then do the multiplication of F with the appropriate vector just as in lecture 14, we see that we satisfy boundary conditions (i.e. P_{i+1} = F * P_{i}). 
